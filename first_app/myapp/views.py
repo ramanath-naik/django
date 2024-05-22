@@ -46,3 +46,7 @@ def home(request):
 #             return JsonResponse({'status': 'error', 'message': 'Redis is not returning the correct value.'})
 #     except Exception as e:
 #         return JsonResponse({'status': 'error', 'message': str(e)})
+
+
+def hello(request):
+    return render(request, 'home.html',{'name':'naveen'})  #to pass dynamic value
