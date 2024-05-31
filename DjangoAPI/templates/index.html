@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Employee Management System</h1>
+    <div id="department-section">
+        <h2>Departments</h2>
+        <ul id="department-list"></ul>
+        <form id="department-form">
+            <input type="hidden" id="department-id">
+            <input type="text" id="department-name" placeholder="Department Name" required>
+            <button type="submit">Save Department</button>
+        </form>
+    </div>
+
+    <div id="employee-section">
+        <h2>Employees</h2>
+        <ul id="employee-list"></ul>
+        <form id="employee-form">
+            <input type="hidden" id="employee-id">
+            <input type="text" id="employee-name" placeholder="Employee Name" required>
+            <input type="text" id="employee-department" placeholder="Department" required>
+            <button type="submit">Save Employee</button>
+        </form>
+    </div>
+
+    <div id="file-upload-section">
+        <h2>Upload File</h2>
+        <form id="file-upload-form" enctype="multipart/form-data">
+            <input type="file" id="file-input" required>
+            <button type="submit">Upload</button>
+        </form>
+        <p id="file-upload-status"></p>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Employee Management</h1>
+    <div id="department-section">
+        <h2>Departments</h2>
+        <form id="department-form">
+            <input type="text" id="department-name" placeholder="Department Name" required>
+            <button type="submit">Save Department</button>
+        </form>
+    </div>
+    <div id="department-list">
+        <button id="view-all-departments">View all departments</button>
+        <table id="department-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="department-table-body">
+                <!-- Departments will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
