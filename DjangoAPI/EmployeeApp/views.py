@@ -16,7 +16,12 @@ def index(request):
 def home(request):
     data = {
         "title":"Home Page",
-        "body":"Welcome to home page"
+        "body":"Welcome to home page",
+        "clist" : ["Java", "Python", "Javascript"],
+        "student_details":[
+            {"name" : "Anand", "phone" : 9898989898},
+            {"name" : "Akshay", "phone" : 7979797979}
+        ]
     }
     return render(request,'home.html',data)
 

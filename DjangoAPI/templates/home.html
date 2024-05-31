@@ -8,5 +8,29 @@
 </head>
 <body>
     <h1>{{body}}</h1>
+    {% for n in clist %}
+    <div>
+        <h2>{{forloop.counter}} {{n}}</h2>
+    </div>
+    {% endfor %}
+
+    {% for m in student_details %}
+    <div>
+        <h4>Name:{{m.name}} &nbsp;&nbsp; Phone:{{m.phone}}</h4>
+    </div>
+    {% endfor %}
+    <br/>
+    <table border="1" cellpadding = '10'>
+        <tr>
+            <th> Name </th>
+            <th> Phone Number</th>
+        </tr>
+        {% for data in student_details %}
+        <tr>
+            <td> {{data.name}}</td>
+            <td>{{data.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
