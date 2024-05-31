@@ -8,13 +8,21 @@ from EmployeeApp.serializers import DepartmentSerializer, EmployeeSerializer
 
 from django.core.files.storage import default_storage
 
+from .forms import UsersForm
+
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html')
 
 def home(request):
+    fn = UsersForm()
+    val1= int(request.POST['num1'])
+    val2= int(request.POST['num2'])
+    res = val1+val2
     data = {
+        "result":res,
+        "form" : fn,
         "title":"Home Page",
         "body":"Welcome to home page",
         "clist" : ["Java", "Python", "Javascript"],

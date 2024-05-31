@@ -32,5 +32,18 @@
         </tr>
         {% endfor %}
     </table>
+    <div>
+        <h4>Django form example</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        Result: {{result}}
+    </div>
+    
+
 </body>
 </html>
