@@ -13,6 +13,13 @@ from django.core.files.storage import default_storage
 def index(request):
     return render(request, 'index.html')
 
+def home(request):
+    data = {
+        "title":"Home Page",
+        "body":"Welcome to home page"
+    }
+    return render(request,'home.html',data)
+
 
 @csrf_exempt
 def departmentApi(request, id=0):
