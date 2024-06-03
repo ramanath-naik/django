@@ -8,6 +8,11 @@
 <body>
     
     <form method="post">
+        {% if error %}
+        <div style="color: red">
+            please enter the value
+        </div>
+        {% endif %}
         {% csrf_token %} 
         <label>Value 1 :</label>
         <input type="text" name="num1" />
