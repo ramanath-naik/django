@@ -7,7 +7,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <h1>{{body}}</h1>
+    <marquee onmouseover="stop()" onmouseout="start()">
+      <a href="/calculator" style="text-decoration: none; font-size: 2em;" >{{body}} </a> &nbsp; &nbsp;&nbsp;&nbsp;
+    </marquee>
+    
     {% for n in clist %}
     <div>
         <h2>{{forloop.counter}} {{n}}</h2>
@@ -20,7 +23,7 @@
     </div>
     {% endfor %}
     <br/>
-    <table border="1" cellpadding = '10'>
+    <!-- <table border="1" cellpadding = '10'>
         <tr>
             <th> Name </th>
             <th> Phone Number</th>
@@ -31,7 +34,7 @@
             <td>{{data.phone}}</td>
         </tr>
         {% endfor %}
-    </table>
+    </table> -->
     <div>
         <h4>Django form example</h4>
         <form method="post">
