@@ -13,7 +13,16 @@ from .forms import UsersForm
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    data = {}
+    
+    if request.method == 'GET':
+        st = request.GET.get('DepartmentName')
+        if st:
+            department = Departments.objects.filter(DepartmentName__icontains=st)
+            data['departmentData'] = department
+    
+    return render(request, "index.html", data)
+
 
 def home(request):
     fn = UsersForm()

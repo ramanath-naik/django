@@ -77,6 +77,24 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <form method="get">
+            <input type="text" name="DepartmentName" value=""/>
+            <input type="submit" value="Search"/>
+        </form>
+    </div>
+    <div>
+        {% if departmentData %}
+            <h2>Search Results:</h2>
+            <ul>
+                {% for department in departmentData %}
+                    <li>{{ department.DepartmentName }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No departments found.</p>
+        {% endif %}
+    </div>
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>
