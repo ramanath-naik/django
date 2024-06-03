@@ -17,8 +17,9 @@ def index(request):
 
 def home(request):
     fn = UsersForm()
-    val1= int(request.POST['num1'])
-    val2= int(request.POST['num2'])
+    val1= int(request.POST.get('n1',0))
+    val2= int(request.POST.get('n2',0))
+    # val2= int(request.POST['n2'])
     res = val1+val2
     data = {
         "result":res,
@@ -29,7 +30,8 @@ def home(request):
         "student_details":[
             {"name" : "Anand", "phone" : 9898989898},
             {"name" : "Akshay", "phone" : 7979797979}
-        ]
+        ],
+        "description": "Hello this is example for <b>Template Filter </b> in Django"
     }
     return render(request,'home.html',data)
 
@@ -62,6 +64,9 @@ def calculator(request):
 def departmentApi(request, id=0):
     if request.method == 'GET':
         departments = Departments.objects.all()
+        # departments = Departments.objects.all().order_by('DepartmentName')  #order by ascending using department name
+        # departments = Departments.objects.all().order_by('-DepartmentName')  #order by descending using department name with - symbol
+        # departments = Departments.objects.all().order_by('-DepartmentName')[:3] #adding limit using slicing
         departments_serializer = DepartmentSerializer(departments, many=True)
         return JsonResponse(departments_serializer.data, safe=False)
     
