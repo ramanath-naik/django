@@ -10,6 +10,8 @@ from django.core.files.storage import default_storage
 
 from .forms import UsersForm
 
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 def index(request):
@@ -23,6 +25,16 @@ def index(request):
     
     return render(request, "index.html", data)
 
+def paginator(request):
+    data = {}
+    
+    if request.method == 'GET':
+        departments = Departments.objects.all()
+        paginator = Paginator(departments, 2)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+    
+    return render(request, "paginator.html", {'page_obj': page_obj})
 
 def home(request):
     fn = UsersForm()

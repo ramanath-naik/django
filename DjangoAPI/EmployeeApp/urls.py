@@ -7,6 +7,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('home', views.home),
+    path('paginator', views.paginator),
     path('calculator', views.calculator),
     path('api/departments/', views.departmentApi),
     path('api/departments/<int:id>/', views.departmentApi),
